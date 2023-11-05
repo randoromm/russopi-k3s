@@ -4,7 +4,7 @@ metadata:
   annotations:
     field.cattle.io/description: cows
     field.cattle.io/publicEndpoints: >-
-      [{"addresses":["192.168.1.172","192.168.1.222"],"port":80,"protocol":"HTTP","serviceName":"default:helloworld-nodeport","ingressName":"default:hello-world-ingress","hostname":"ilovecows.com","path":"/","allNodes":false}]
+      [{"addresses":["192.168.1.172","192.168.1.222"],"port":80,"protocol":"HTTP","serviceName":"default:helloworld-nodeport","ingressName":"default:hello-world-ingress","hostname":"cows.russo.k3s","path":"/","allNodes":false}]
   creationTimestamp: '2023-11-05T01:34:31Z'
   generation: 1
   managedFields:
@@ -38,7 +38,7 @@ metadata:
 spec:
   ingressClassName: traefik
   rules:
-    - host: ilovecows.com
+    - host: cows.russo.k3s
       http:
         paths:
           - backend:
