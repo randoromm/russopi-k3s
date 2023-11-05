@@ -28,7 +28,7 @@ kubectl kustomize | kubectl delete -f -
 
 ## Master node setup (installing k3s)
 
-1. Become root
+1. SSH to the pi & become root
     ```
     sudo su -
     ```
@@ -51,36 +51,38 @@ curl -sfL https://get.k3s.io | K3S_TOKEN="YOURTOKEN" K3S_URL="https://[your serv
 ## Install Rancher
 1. Create a separate Ubuntu Server 20.04.3 LTS VM (I used hyper-v, 4 cpus, 4gig memory)
 2. Install docker on it:
-```
-sudo apt remove -y docker docker-engine docker.io containerd runc
-```
-```
-sudo apt install -y docker.io
-```
-```
-sudo usermod -aG docker $USER
-```
-```
-newgrp docker
-```
+    ```
+    sudo apt remove -y docker docker-engine docker.io containerd runc
+    ```
+    ```
+    sudo apt install -y docker.io
+    ```
+    ```
+    sudo usermod -aG docker $USER
+    ```
+    ```
+    newgrp docker
+    ```
 3. Start docker:
-```
-sudo systemctl start docker
-```
-```
-sudo systemctl enable docker
-```
-
+    ```
+    sudo systemctl start docker
+    ```
+    ```
+    sudo systemctl enable docker
+    ```
+    ```
+    sudo systemctl status docker
+    ```
 4. Install rancher (you can also try "rancher:latest"):
-```
-docker run -d --name=rancher-server --restart=unless-stopped -p 80:80 -p 443:443 --privileged rancher/rancher:v2.7.9
-```
+    ```
+    docker run -d --name=rancher-server --restart=unless-stopped -p 80:80 -p 443:443 --privileged rancher/rancher:v2.7.9
+    ```
 5. Go to localhost and follow instructions for password
 6. Import your PI cluster (rancher UI)
 7. Edit the cluster API file (agentImageOverride):
-```
-rancher/rancher-agent:v2.5.8-linux-arm64
-```
+    ```
+    rancher/rancher-agent:v2.5.8-linux-arm64
+    ```
 
 
 
