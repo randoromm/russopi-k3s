@@ -1,0 +1,55 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    field.cattle.io/description: cows
+    field.cattle.io/publicEndpoints: >-
+      [{"addresses":["192.168.1.172","192.168.1.222"],"port":80,"protocol":"HTTP","serviceName":"default:helloworld-nodeport","ingressName":"default:hello-world-ingress","hostname":"ilovecows.com","path":"/","allNodes":false}]
+  creationTimestamp: '2023-11-05T01:34:31Z'
+  generation: 1
+  managedFields:
+    - apiVersion: networking.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:field.cattle.io/description: {}
+            f:field.cattle.io/publicEndpoints: {}
+        f:spec:
+          f:rules: {}
+      manager: agent
+      operation: Update
+      time: '2023-11-05T01:34:31Z'
+    - apiVersion: networking.k8s.io/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:status:
+          f:loadBalancer:
+            f:ingress: {}
+      manager: traefik
+      operation: Update
+      subresource: status
+      time: '2023-11-05T01:34:31Z'
+  name: hello-world-ingress
+  namespace: default
+  resourceVersion: '16777'
+  uid: 3ddfe225-7169-4cea-92c6-4482c35bbd89
+spec:
+  ingressClassName: traefik
+  rules:
+    - host: ilovecows.com
+      http:
+        paths:
+          - backend:
+              service:
+                name: helloworld-nodeport
+                port:
+                  number: 8080
+            path: /
+            pathType: Prefix
+status:
+  loadBalancer:
+    ingress:
+      - ip: 192.168.1.172
+      - ip: 192.168.1.222
