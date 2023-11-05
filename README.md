@@ -15,7 +15,7 @@ kubectl kustomize | kubectl delete -f -
 
 1. Image the SD card using the Raspberry Pi Imager.
 2. Raspberry Pi Imager: https://www.raspberrypi.org/software/
-3. Install "Raspberry Pi OS Lite", enable SSH
+3. Install "Raspberry Pi OS Lite 64bit", enable SSH
 4. Insert the SD card into the Raspberry Pi and allow it to boot (3-4 minutes)
 5. Remove the SD card and plug it back into your computer
 6. Open the SD card location and open the file "cmdline.txt"
