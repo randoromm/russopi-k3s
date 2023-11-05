@@ -97,7 +97,7 @@ node/russopi-master labeled
 russo@russopi-master:~ $ kubectl label nodes russopi-n1 cputype=arm64
 node/russopi-n1 labeled
 ```
-2. Define the pods/deployments with nodeSelector for your lable e.g.:
+2. OPTIONAL: Define the pods/deployments with nodeSelector for your lable e.g.:
 ```
 apiVersion: v1
 kind: Pod
