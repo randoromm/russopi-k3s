@@ -11,6 +11,8 @@ kubectl kustomize | kubectl apply -f -
 kubectl kustomize | kubectl delete -f -
 ```
 
+# Cluster & Rancher Setup
+
 ## Preparing the Raspberry Pi nodes:
 
 1. Image the SD card using the Raspberry Pi Imager.
