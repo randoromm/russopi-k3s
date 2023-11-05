@@ -116,5 +116,14 @@ spec:
   nodeSelector:
     cputype: arm64
 ```
-
+```
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+        - matchExpressions:
+            - key: cputype
+              operator: In
+              values:
+                - x86_64
+```
 
