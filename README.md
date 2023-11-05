@@ -86,5 +86,30 @@ curl -sfL https://get.k3s.io | K3S_TOKEN="YOURTOKEN" K3S_URL="https://[your serv
     rancher/rancher-agent:v2.5.8-linux-arm64
     ```
 
+## Have multi architecture cluster?
+
+1. Create labels for cpu architecture type for nodes
+```
+russo@russopi-master:~ $ kubectl label nodes russo-i3 cputype=x86_64
+node/russo-i3 labeled
+russo@russopi-master:~ $ kubectl label nodes russopi-master cputype=arm64
+node/russopi-master labeled
+russo@russopi-master:~ $ kubectl label nodes russopi-n1 cputype=arm64
+node/russopi-n1 labeled
+```
+2. Define the pods/deployments with nodeSelector for your lable e.g.:
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    imagePullPolicy: IfNotPresent
+  nodeSelector:
+    cputype: arm64
+```
 
 
