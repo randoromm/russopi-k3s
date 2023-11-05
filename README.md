@@ -49,7 +49,7 @@ curl -sfL https://get.k3s.io | K3S_TOKEN="YOURTOKEN" K3S_URL="https://[your serv
 ```
 
 ## Install Rancher
-1. Create a separate Ubuntu Server 20.04.3 LTS VM (I used hyper-v, 4 cpus, 4gig memory)
+1. Create a separate Ubuntu Server 20.04.3 LTS VM (I used hyper-v, 2 cpus, 4gig memory)
 2. Install docker on it:
     ```
     sudo apt remove -y docker docker-engine docker.io containerd runc
