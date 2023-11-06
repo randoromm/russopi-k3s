@@ -4,7 +4,7 @@ metadata:
   name: hello-world
   namespace: default
 spec:
-  replicas: 6
+  replicas: 4
   selector:
     matchLabels:
       app: hello-world
@@ -34,3 +34,5 @@ spec:
             port: 8080
           initialDelaySeconds: 15
           periodSeconds: 20
+      nodeSelector:
+        cputype: arm64
