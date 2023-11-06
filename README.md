@@ -11,6 +11,11 @@ kubectl kustomize | kubectl apply -f -
 kubectl kustomize | kubectl delete -f -
 ```
 
+Check temps of CPU (before proper monitoring is setup):
+```
+vcgencmd measure_temp
+```
+
 # Cluster & Rancher Setup
 
 ## Preparing the Raspberry Pi nodes:
@@ -111,5 +116,14 @@ spec:
   nodeSelector:
     cputype: arm64
 ```
-
+```
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+        - matchExpressions:
+            - key: cputype
+              operator: In
+              values:
+                - x86_64
+```
 
