@@ -126,7 +126,7 @@ spec:
               values:
                 - x86_64
 ```
-*. Ubuntu/Debian disable UFW (or open all necessary ports, check k3s docs)
+*. Ubuntu/Debian disable firewall (or open all necessary ports, check k3s docs)
 ```
 ufw disable
 ```
